@@ -39,7 +39,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-   	snips.skill.set_to_previous_volume();
+    snips.skill.set_to_previous_volume();
     tts_service.speak("This is {} by {} on the album {}".format(*snips.skill.get_info()))
 
     current_session_id = intentMessage.session_id

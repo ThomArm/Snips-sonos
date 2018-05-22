@@ -39,8 +39,8 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-   	volume_lower = None
-   	snips.skill.set_to_previous_volume()
+    volume_lower = None
+    snips.skill.set_to_previous_volume()
     if len(snips.intent.volume_lower):
     	volume_lower = snips.intent.volume_lower[0]
     snips.skill.volume_down(volume_lower)
