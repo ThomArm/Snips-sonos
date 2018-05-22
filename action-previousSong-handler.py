@@ -39,7 +39,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-   	play_previous_item_in_queue
+   	snips.skill.play_previous_item_in_queue
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
