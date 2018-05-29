@@ -44,7 +44,7 @@ def action_wrapper(hermes, intentMessage, conf):
     if len(intentMessage.slots.volume_lower):
     	volume_lower = intentMessage.slots.volume_lower[0]
     snipssonos.volume_down(volume_lower)
-   	snipssonos.previous_volume = snipssonos.device.volume
+    snipssonos.previous_volume = snipssonos.device.volume
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
