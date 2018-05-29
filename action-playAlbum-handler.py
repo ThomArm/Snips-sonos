@@ -39,15 +39,16 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-    if len(snips.intent.album_name):
-        album_name = snips.intent.album_name[0]
-        snips.skill.play_album(album_name, _shuffle=(len(snips.intent.album_lecture_mode) and snips.intent.album_lecture_mode[0] == "shuffle"))
+    if len(intentMessage.slots.album_name):
+        album_name = intentMessage.slots.album_name[0]
+        snipssonos.play_album(album_name, _shuffle=(len(intentMessage.slots.album_lecture_mode) and intentMessage.slots.album_lecture_mode[0] == "shuffle"))
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
 
 
 if __name__ == "__main__":
+    snipssonos= SnipsSonos("AQCfH1bVZBQJFndo6CveUJFS7ajz6knJBx3cHLaXdzub0NcukBJGrNjl9dSHKFU0e-vEiBzxUoF5a_AavLjuGXGoYUttz6JGR1SIWlDHRGBAfFVEoBY2kuJ4dK1jxujCqHA")
     with Hermes("localhost:1883") as h:
         h.subscribe_intent("playAlbum", subscribe_intent_callback) \
 .start()

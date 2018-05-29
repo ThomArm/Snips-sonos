@@ -39,7 +39,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-    snips.skill.set_to_previous_volume();
+    snipssonos.set_to_previous_volume();
     tts_service.speak("This is {} by {} on the album {}".format(*snips.skill.get_info()))
 
     current_session_id = intentMessage.session_id
@@ -47,6 +47,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
 
 if __name__ == "__main__":
+    snipssonos= SnipsSonos("AQCfH1bVZBQJFndo6CveUJFS7ajz6knJBx3cHLaXdzub0NcukBJGrNjl9dSHKFU0e-vEiBzxUoF5a_AavLjuGXGoYUttz6JGR1SIWlDHRGBAfFVEoBY2kuJ4dK1jxujCqHA")
     with Hermes("localhost:1883") as h:
         h.subscribe_intent("getInfos", subscribe_intent_callback) \
 .start()

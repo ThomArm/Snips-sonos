@@ -40,17 +40,18 @@ def action_wrapper(hermes, intentMessage, conf):
     Refer to the documentation for further details. 
     """ 
     volume_higher = None
-    snips.skill.set_to_previous_volume()
-    if snips.intent.volume_higher:
-    	volume_higher = snips.intent.volume_higher[0]
-    snips.skill.volume_up(volume_higher)
-    snips.skill.previous_volume = snips.skill.device.volume
+    snipssonos.set_to_previous_volume()
+    if intentMessage.slots.volume_higher:
+    	volume_higher = intentMessage.slots.volume_higher[0]
+    snipssonos.volume_up(volume_higher)
+    snipssonos.previous_volume = snipssonos.device.volume
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
 
 
 if __name__ == "__main__":
+    snipssonos= SnipsSonos("AQCfH1bVZBQJFndo6CveUJFS7ajz6knJBx3cHLaXdzub0NcukBJGrNjl9dSHKFU0e-vEiBzxUoF5a_AavLjuGXGoYUttz6JGR1SIWlDHRGBAfFVEoBY2kuJ4dK1jxujCqHA")
     with Hermes("localhost:1883") as h:
         h.subscribe_intent("volumeUp", subscribe_intent_callback) \
 .start()
