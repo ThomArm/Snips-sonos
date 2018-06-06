@@ -44,6 +44,7 @@ def action_wrapper(hermes, intentMessage, conf):
         snipssonos.play_artist(artist_name)
 
     current_session_id = intentMessage.session_id
+    result_sentence="Je joue l'artist"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 

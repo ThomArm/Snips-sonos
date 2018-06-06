@@ -44,6 +44,7 @@ def action_wrapper(hermes, intentMessage, conf):
         snipssonos.play_album(album_name, _shuffle=(len(intentMessage.slots.album_lecture_mode) and intentMessage.slots.album_lecture_mode[0] == "shuffle"))
 
     current_session_id = intentMessage.session_id
+    result_sentence="Je joue l'album"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 

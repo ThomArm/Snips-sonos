@@ -44,6 +44,7 @@ def action_wrapper(hermes, intentMessage, conf):
     	snipssonos.turn_on_radio(radio_name)
 
     current_session_id = intentMessage.session_id
+    result_sentence="La radio est allume"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 

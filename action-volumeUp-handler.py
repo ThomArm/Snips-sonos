@@ -47,6 +47,7 @@ def action_wrapper(hermes, intentMessage, conf):
     snipssonos.previous_volume = snipssonos.device.volume
 
     current_session_id = intentMessage.session_id
+    result_sentence="Volume augmente"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 

@@ -41,6 +41,7 @@ def action_wrapper(hermes, intentMessage, conf):
     """ 
     snipssonos.play_next_item_in_queue
     current_session_id = intentMessage.session_id
+    result_sentence="Voici le prochain son"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 

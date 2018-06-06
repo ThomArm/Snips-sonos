@@ -43,6 +43,7 @@ def action_wrapper(hermes, intentMessage, conf):
     tts_service.speak("This is {} by {} on the album {}".format(*snips.skill.get_info()))
 
     current_session_id = intentMessage.session_id
+    result_sentence="Info renvoye"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 
